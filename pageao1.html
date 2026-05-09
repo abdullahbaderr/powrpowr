@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Information</title>
+  <link rel="stylesheet" href="mysheetccv.css">
+</head>
+<script src="myscript.js"></script>
+<body>
+
+  <div class="nav_menu"> 
+  <a href="index.html">Home</a>
+  <a href="pageao1.html">Contact</a>
+  <a href="Products.html">Products</a>
+  <a href="protein.html">Proteins</a>
+  <a href="pills.html">Pills</a>
+  <a href="drinks.html">Drinks</a>
+  <a href="thankyou.html">Thank You</a>
+  <a href="about.html">About Us</a>
+</div>
+
+  <div class="container">
+    <h2>Enter Your Information</h2>
+
+    <form onsubmit="calculateProtein(event)">
+
+      <label>Full Name:</label><br>
+      <input type="text" id="name" required><br><br>
+
+      <label>Age:</label><br>
+      <input type="number" id="age" required><br><br>
+
+      <label>Gender:</label>
+      <div class="gender-selection">
+        <label>
+          <input type="radio" name="gender" value="Male" required>
+          Male
+        </label>
+
+        <label>
+          <input type="radio" name="gender" value="Female">
+          Female
+        </label>
+      </div>
+
+      <label>Email Address:</label><br>
+      <input type="email" id="email"
+      placeholder="example@email.com" required><br><br>
+
+      <label>Weight (kg):</label><br>
+      <input type="number" id="weight" required><br><br>
+
+      <label>Height (cm):</label><br>
+      <input type="number" id="height" required><br><br>
+
+      <button type="submit">
+        Calculate Protein
+      </button>
+
+      <p id="result"></p>
+
+      <div class="buttons">
+        <button type="button" class="back-btn"
+        onclick="window.location.href='index.html'">
+          Back
+        </button>
+
+        <button type="button" class="next-btn"
+        onclick="window.location.href='Products.html'">
+          Next
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer"> 
+    <p>Power Supplements helps you know your daily protein needs 💪</p>
+  </div>
+
+  <script>
+    function calculateProtein(event) {
+      event.preventDefault();
+
+      let weight =
+      document.getElementById("weight").value;
+
+      let result =
+      document.getElementById("result");
+
+      let protein = weight * 1.6;
+
+      result.textContent =
+      "You need about " +
+      protein.toFixed(1) +
+      " grams of protein per day.";
+    }
+  </script>
+
+</body>
+</html>
